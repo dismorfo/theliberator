@@ -21,6 +21,11 @@ class ElasticsearchClientFactory
 
         if (! config('services.elasticsearch.ssl_verify', true)) {
             $builder->setSSLVerification(false);
+
+            // Explicitly tell the underlying HTTP client to ignore SSL issues
+            $builder->setHttpClientOptions([
+                'verify' => false
+            ]);
         }
 
         return $builder->build();
