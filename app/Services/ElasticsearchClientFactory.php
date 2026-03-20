@@ -9,8 +9,16 @@ class ElasticsearchClientFactory
 {
     public function make(): Client
     {
-        return ClientBuilder::create()
-            ->setHosts([config('services.elasticsearch.host', 'http://localhost:9200')])
-            ->build();
+        $builder = ClientBuilder::create()
+            ->setHosts([config('services.elasticsearch.host', 'http://localhost:9200')]);
+
+        $username = config('services.elasticsearch.username');
+        $password = config('services.elasticsearch.password');
+
+        if (is_string($username) && $username !== '' && is_string($password) && $password !== '') {
+            $builder->setBasicAuthentication($username, $password);
+        }
+
+        return $builder->build();
     }
 }
