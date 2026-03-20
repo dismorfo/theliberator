@@ -1,0 +1,135 @@
+.items {
+  margin: 0 (-$separator-width) 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item {
+  /* maximum four columns */
+  flex: 1 1 25%;
+  min-width: 150px;
+  border: $separator-width solid transparent;
+  border-style: inset;
+}
+
+.itemwide {
+  background-color: inherit;
+  font-size: 1.3rem;
+  line-height: 1.5;
+
+  p {
+    margin: 0;
+  }
+}
+
+.itemspecial {
+  .newsitem {
+    padding: 2px;
+    background-color: $newsItem-border-color;
+  }
+
+  .meta {
+    padding: $separator-width;
+    background-color: $item-special-bg-color;
+    border-radius: 6px;
+    font-size: .9rem;
+    line-height: 1.4;
+    .md_title {
+      display: inline-block;
+      padding-bottom: 0;
+      line-height: inherit;
+      font-size: inherit;
+      font-weight: normal;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .itemspecial,
+  .itemwide {
+    min-width: 100%;
+  }
+
+  .site-title.itemwide {
+    margin-right: 0;
+    line-height: 1;
+    min-width: 20%;
+    flex: 1 1 auto;
+
+  }
+
+  .toplogo-nyu.item {
+    align-self: flex-end;
+    flex-grow: 0;
+  }
+
+  .inner-header {
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+    flex-wrap: wrap-reverse;
+    height: auto;
+    margin: 0;
+    >div {
+      transition: 0;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .itemwide.intro {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .intro {
+    padding-right: 60px;
+  }
+}
+.toplogo-nyu.item {
+  border-bottom: 0;
+}
+
+@media (min-width: 769px) {
+  .toplogo-nyu.item {
+    border-bottom: 0;
+  }
+
+  .inner-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0;
+    min-height: 100px;
+  }
+
+  .itemspecial,
+  .itemwide {
+    min-width: 150px;
+  }
+
+  .itemwide {
+    flex: 1 1 75%;
+  }
+
+  .itemspecial {
+    flex: 1 1 25%;
+  }
+
+  .intro {
+    padding-right: 20px;
+  }
+}
+
+.item .card a:hover {
+  box-shadow: 0 0 0 5px $focus-color;
+  outline: none;
+}
+
+.site-title {
+  border-left: 0;
+}

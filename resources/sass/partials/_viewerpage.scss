@@ -1,0 +1,78 @@
+// For book detail page
+body.ispage.books {
+
+  main {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  h1.page-title {
+    @include sr-only;
+  }
+
+  .toplogo-nyu a {
+    height: 20px;
+  }
+
+  .contain-main {
+    max-width: none;
+    margin-bottom: 0;
+  }
+
+  .contain-header {
+    margin: 0;
+    display: block;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .inner-header {
+    min-height: auto;
+  }
+
+  @media (max-width: 768px) {
+    .inner-header {
+      margin: 0 -10px 0;
+    }
+  }
+
+  
+  &.io-loading .viewer {
+    opacity: 0;
+  }
+
+  .viewer {
+    border: 0;
+    width: 100%;
+    min-height: 50vh;
+    height: calc(100vh - 55px);
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+  }
+
+  .page-header {
+    height: 55px;
+    max-width: none;
+  }
+
+  .navhold {
+    display: none;
+  }
+
+  .contain-footer {
+    display: none;
+    height: 0;
+  }
+
+  .site-title a {
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+
+}

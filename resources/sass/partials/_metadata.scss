@@ -1,0 +1,91 @@
+.item {
+  .card {
+    height: 100%;
+    background-color: initial; // $item-bg-color;
+    line-height: 1.3;
+    text-align: center;
+    > a:link {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .meta {
+      padding: $separator-width;
+      padding: 5px 0 10px 0;
+      font-size: 0.9rem;
+      line-height: 1.35;
+
+      > div {
+        margin-bottom: 3px;
+      }
+    }
+  }
+
+  .md_label {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+  }
+
+  .md_title {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin: 0;
+    font-weight: bold;
+
+    a,
+    a:link,
+    a:visited {
+      display: block;
+    }
+  }
+
+  .md_author {
+    padding-right: 5px;
+
+    &::after {
+      content: ";";
+    }
+
+    &:last-child::after {
+      content: "";
+    }
+  }
+
+  a {
+    &:link,
+    &:visited {
+      font-weight: normal;
+      color: $brand-primary;
+    }
+
+    &:hover {
+      color: lighten($brand-primary, 7%);
+    }
+  }
+
+  .thumbs {
+    width: 100%;
+    flex: 0 0 auto;
+    -webkit-box-shadow: rgba(102, 102, 102, 0.8) 1px 1px 1px;
+    box-shadow: rgba(102, 102, 102, 0.8) 1px 1px 1px;
+    a {
+      display: block;
+      margin-right: 0;
+    }
+
+    img {
+      @include img-responsive;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .item .card .meta {
+    padding: 0;
+
+    .md_title {
+      font-size: 1rem;
+    }
+  }
+}

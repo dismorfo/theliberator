@@ -1,0 +1,49 @@
+$height: 45px !default;
+$submit-button-bg: #ffffff !default;
+
+.dl-search {
+  display: flex;
+  max-width: 900px;
+  width: 100%;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16);
+
+  > * {
+    height: $height;
+
+    // transparent border overrides browser defaults
+    border: 1px solid transparent;
+    font-size: 1rem;
+
+    &:focus {
+      // higher z-index specified so that
+      // outline/border for focus will be fully visible --
+      // not "under" another element
+      z-index: 2;
+    }
+  }
+
+  .searchfield {
+    flex: 1 1 auto;
+    padding: 2px 1rem;
+  }
+
+  [type="submit"] {
+    background-color: $submit-button-bg;
+    flex: 0 1 70px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: black;
+
+      path {
+        fill: white;
+      }
+    }
+
+    svg {
+      width: auto;
+      height: 97%;
+    }
+  }
+}

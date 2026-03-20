@@ -1,0 +1,27 @@
+/* ========================================================================== */
+/* Parent styles:  serials-hugo-basetheme */
+/* Pathing is defined in header.html, passed as a value to key "includePaths"
+/* ========================================================================== */
+@import "./variables";
+@import "./sanitize";
+@import "./mixins/all";
+@import "partials/links";
+@import "partials/footer";
+@import "partials/focus-states";
+@import "partials/bubbling";
+@import "partials/viewerpage";
+@import "partials/accessibility";
+@import "partials/items";
+@import "partials/metadata";
+@import "partials/other";
+
+/* ========================================================================== */
+/* Import site-specific styles */
+/* ========================================================================== */
+@import "./site-variables";
+@import "./site-specific";
+
+.hm2 {
+  margin: 1rem 0 !important;
+  font-weight: 600 !important;
+}

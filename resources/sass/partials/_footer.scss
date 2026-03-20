@@ -1,0 +1,47 @@
+$page-header-background-color: #efefef !default;
+$footer-height: 120px !default;
+
+.contain-footer {
+  background-color: $page-header-background-color;
+}
+
+.page-footer {
+  border-top: 1px solid darken($page-header-background-color, 1%);
+  padding: 20px $side-padding 40px;
+  text-align: center;
+
+  .partner-wrapper a {
+    display: block;
+    color: #111;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-size: .9rem;
+  }
+}
+
+@media (min-width: 269px) {
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+
+  body {
+    margin-bottom: $footer-height + 150px;
+  }
+
+  .contain-footer {
+    position: absolute;
+    bottom: 0;
+    min-height: $footer-height;
+    width: 100%;
+  }
+
+  body.ispage.books {
+    margin-bottom: 0px;
+
+    .contain-footer {
+      display: none;
+    }
+  }
+}

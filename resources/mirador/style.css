@@ -1,0 +1,42 @@
+.MuiTypography-body1 span {
+  padding-left: 0;
+}
+
+h5[id$="-related-heading"] {
+  display: none;
+  visibility: hidden;
+}
+
+.MuiToolbar-root.mirador-companion-window-header {
+  opacity: 0.5;
+  /* display: none; */
+}
+
+.mirador-osd-info {
+  background-color: rgb(22 22 22);
+  padding: 5px;
+}
+
+.mirador-thumbnail-nav-canvas img ~ div {
+  background: transparent;
+}
+
+.mirador-thumbnail-nav-canvas .MuiTypography-caption {
+  background-color: rgb(62 61 61);
+  padding: 5px;
+  border-radius: 50%;
+  min-width: 1rem;
+  display: inline-block;
+  text-align: center;
+}
+
+.mosaic-root {
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}
+
+.mosaic-tile {
+  margin: 0 !important;
+}
