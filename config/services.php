@@ -23,6 +23,7 @@ return [
         'host' => env('ELASTICSEARCH_HOST', 'http://localhost:9200'),
         'username' => env('ELASTICSEARCH_USERNAME'),
         'password' => env('ELASTICSEARCH_PASSWORD'),
+        'ssl_verify' => env('ELASTICSEARCH_SSL_VERIFY', true),
         'index_prefix' => env('ELASTICSEARCH_INDEX_PREFIX', ''),
         'site_key' => env('ELASTICSEARCH_SITE_KEY', env('VIEWER_COLLECTION_CODE', 'site')),
     ],

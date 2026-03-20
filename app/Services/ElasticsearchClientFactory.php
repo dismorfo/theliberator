@@ -19,6 +19,10 @@ class ElasticsearchClientFactory
             $builder->setBasicAuthentication($username, $password);
         }
 
+        if (! config('services.elasticsearch.ssl_verify', true)) {
+            $builder->setSSLVerification(false);
+        }
+
         return $builder->build();
     }
 }
