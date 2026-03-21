@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Services\ViewerApiClient;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Log;
+use Illuminate\View\View;
 use RuntimeException;
 
 class BookViewerController extends Controller
@@ -12,7 +15,7 @@ class BookViewerController extends Controller
         private ViewerApiClient $viewerApiClient,
     ) {}
 
-    public function show(Request $request, $identifier, $page)
+    public function show(Request $request, string $identifier, int $page): View|JsonResponse
     {
 
         try {
@@ -21,15 +24,15 @@ class BookViewerController extends Controller
 
             $cssFiles = glob("$basePath/mirador.*.css");
             if ($cssFiles) {
-                usort($cssFiles, function($a, $b) {
-                    return filemtime($b) - filemtime($a);
+                usort($cssFiles, function (string $a, string $b): int {
+                    return (filemtime($b) ?: 0) - (filemtime($a) ?: 0);
                 });
             }
 
             $jsFiles = glob("$basePath/mirador.*.js");
             if ($jsFiles) {
-                usort($jsFiles, function($a, $b) {
-                    return filemtime($b) - filemtime($a);
+                usort($jsFiles, function (string $a, string $b): int {
+                    return (filemtime($b) ?: 0) - (filemtime($a) ?: 0);
                 });
             }
 
@@ -51,12 +54,14 @@ class BookViewerController extends Controller
                 'jsFile' => $jsFileName,
             ]);
 
-        }  catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
+        } catch (\Exception $e) {
+            Log::error('Failed to render viewer.', ['exception' => $e]);
+
+            return response()->json(['error' => 'Failed to load viewer.'], 500);
         }
     }
 
-    public function manifest($identifier)
+    public function manifest(string $identifier): JsonResponse
     {
         $type = 'books'; // @TODO: Viewer API should support request of presentation manifest without having to pass the type.
 
@@ -88,7 +93,9 @@ class BookViewerController extends Controller
 
             return response()->json($manifest);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to proxy manifest: ' . $e->getMessage()], 500);
+            Log::error('Failed to proxy manifest.', ['exception' => $e]);
+
+            return response()->json(['error' => 'Failed to proxy manifest.'], 500);
         }
     }
 
