@@ -19,7 +19,7 @@ class BookController extends Controller
             abort(404, 'Book not found');
         }
 
-        $sequenceCount = count($data['iiif']['image']['items']);
+        $sequenceCount = count($data['iiif']['image']['items'] ?? []);
 
         if ($page > $sequenceCount || $page < 1 || empty($sequenceCount)) {
           abort(404, 'Page not found');

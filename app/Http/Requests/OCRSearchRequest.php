@@ -46,7 +46,7 @@ class OCRSearchRequest extends FormRequest
         $query = $this->query('q');
 
         $this->merge([
-            'q' => is_string($query) ? trim(preg_replace('/\s+/', ' ', $query) ?? $query) : $query,
+            'q' => is_string($query) ? trim(preg_replace('/\s+/', ' ', $query)) : $query,
         ]);
     }
 }

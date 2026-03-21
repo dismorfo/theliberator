@@ -86,7 +86,7 @@ class IndexOCRCommand extends Command
 
         foreach ($files as $file) {
             $content = file_get_contents($file);
-            if (! $content) {
+            if ($content === false) {
                 continue;
             }
 
